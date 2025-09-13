@@ -7,6 +7,7 @@
   <title>CRUD base</title>
 
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -16,20 +17,38 @@
   </form>
   
   <ul id="records">
+    <template>
+      <li class="record">
+        <output></output>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </li>
+    </template>
+
+    <template>
+      <li class="record editable">
+        <form action="javascript:" id="edit">
+          <input type="text" name="record" required>
+          <button class="save">Save</button>
+          <button class="cancel">Cancel</button>
+        </form>
+      </li>
+    </template>
+    
     <li class="record">
-      <span>Alpha</span>
+      <output>Alpha</output>
       <button class="edit">Edit</button>
       <button class="delete">Delete</button>
     </li>
 
     <li class="record">
-      <span>Beta</span>
+      <output>Beta</output>
       <button class="edit">Edit</button>
       <button class="delete">Delete</button>
     </li>
 
     <li class="record">
-      <span>Gamma</span>
+      <output>Gamma</output>
       <button class="edit">Edit</button>
       <button class="delete">Delete</button>
     </li>
@@ -45,3 +64,7 @@
 </body>
 
 </html>
+
+<script delete me>
+  document.forms[0].record.value = "Epsilon"
+</script>
