@@ -92,6 +92,7 @@ function enableRecordEditing(i) {
 
   editForm.record.focus();
   editForm.record.select();
+  editForm.onsubmit = handleSubmitUpdateRecord;
 }
 
 function deleteRecord(i) {
@@ -104,7 +105,6 @@ function deleteRecord(i) {
 function handleSubmitUpdateRecord(event) {
   const form = event.target;
   const btn = event.submitter;
-  const ul = document.getElementById('records');
   const li = form.closest('.record');
   const i = getIndex(li);
   const str = form.record.value.trim();
@@ -112,6 +112,8 @@ function handleSubmitUpdateRecord(event) {
   if (btn.matches('.cancel')) disableRecordEditing(i);
 
   if (btn.matches('.save')) updateRecord(i, str);
+
+  return false;
 }
 
 function disableRecordEditing(i) {
