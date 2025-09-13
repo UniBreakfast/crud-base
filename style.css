@@ -1,0 +1,12 @@
+#records {
+  display: grid;
+  gap: 5px;
+}
+
+button {
+  transition: 400ms;
+}
+
+.record:not(:hover, .editable) button:not(:focus) {
+  opacity: 0;
+}
